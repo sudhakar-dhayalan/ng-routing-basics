@@ -2,8 +2,10 @@
   <h1>Routing and Navigation</h1>
 </div>
 
-<nav>
-  <a routerLink="/departments" routerLinkActive="active">Departments</a>
-  <a routerLink="/employees" routerLinkActive="active">Employees</a>
+<nav style="margin-left: 40%;">
+  <button><a routerLink="/departments" routerLinkActive="active">Departments</a></button>
+  <button><a routerLink="/employees" routerLinkActive="active">Employees</a></button>
 </nav>
-<router-outlet></router-outlet>
+<div style="background: bisque; width: 50%; margin-left: 25%;">
+  <router-outlet></router-outlet>
+</div>

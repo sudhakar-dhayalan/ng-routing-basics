@@ -6,3 +6,12 @@
 nav a.active {
   color: green;
 }
+
+nav a {
+  text-decoration: none;
+  font-size: medium;
+}
+
+button {
+  margin: 10px;
+}
