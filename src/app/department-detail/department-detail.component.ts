@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, 
+  AfterViewInit, AfterViewChecked, OnDestroy} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -26,7 +27,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   `
   ]
 })
-export class DepartmentDetailComponent implements OnInit {
+export class DepartmentDetailComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked,
+AfterViewInit ,AfterViewChecked, OnDestroy{
   public departmentId;
   public isComponentSelected = true;
   constructor(public activatedRoute: ActivatedRoute, public router: Router) { }
@@ -34,8 +36,33 @@ export class DepartmentDetailComponent implements OnInit {
   ngOnInit(): void {
     // tslint:disable-next-line:radix
     this.departmentId = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    console.log('ngOnInit child');
   }
 
+
+  ngOnChanges() {
+    console.log('ngOnChanges child');
+  }
+  ngDoCheck() {
+    console.log('ngDoCheck child');
+  }
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit child');
+  }
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked child');
+  }
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit child');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked child');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy child');
+  }
   // tslint:disable-next-line:typedef
   goToPrevious() {
     this.departmentId = this.departmentId - 1;

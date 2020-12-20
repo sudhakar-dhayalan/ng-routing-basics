@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, 
+  AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -18,6 +19,8 @@ import { Router, ActivatedRoute } from '@angular/router';
           </button>
         </li><br>
       </ul>
+
+      <input [(ngModel)]="firstName" />
     </div>
   `,
   styles: [`
@@ -31,8 +34,10 @@ import { Router, ActivatedRoute } from '@angular/router';
     }
   `]
 })
-export class DepartmentListComponent implements OnInit {
+export class DepartmentListComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked,
+  AfterViewInit ,AfterViewChecked, OnDestroy {
 
+    firstName;
   public selectedId;
   public departmentList = [
     { id: '1', name: 'Angular'},
@@ -42,11 +47,34 @@ export class DepartmentListComponent implements OnInit {
   ];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    console.log('department constructor');
   }
 
-  ngOnInit(): void {
-    // tslint:disable-next-line:radix
-    this.selectedId = this.activatedRoute.snapshot.paramMap.get('id');
+  ngOnChanges() {
+    console.log('ngOnChanges');
+  }
+  ngOnInit(){
+    console.log('ngOnInit  ');
+  }
+  ngDoCheck() {
+    console.log('ngDoCheck');
+  }
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit');
+  }
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked');
+  }
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
   }
 
   // tslint:disable-next-line:typedef
